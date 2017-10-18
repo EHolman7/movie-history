@@ -9,7 +9,7 @@ const domString = (movieArray) => {
 		}
 		domStrang += `<div class="col-sm-6 col-md-4">`;
 		domStrang += 	`<div class="thumbnail">`;
-		domStrang += 		`<img src="..." alt="...">`;
+		domStrang += 		`<img src="" alt="...">`;
 		domStrang += 		`<div class="caption">`;
 		domStrang += 			`<h3>${movieArray[i].original_title}</h3>`;
 		domStrang += 			`<p>${movieArray[i].overview}</p>`;
@@ -28,4 +28,8 @@ const printToDom = (strang) => {
 	$("#movies").append(strang);
 };
 
-module.exports = {domString};
+const clearDom = () => {
+$('#movies').empty();
+};
+
+module.exports = {domString, clearDom};
