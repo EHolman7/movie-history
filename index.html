@@ -22,19 +22,38 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Authenticate</a></li>
-        <li><a href="#">My Movies</a></li>
-        <li><a href="#">Search</a></li>
+        <li><a id="authenticate" href="#">Authenticate</a></li>
+        <li><a id="mine" href="#">My Movies</a></li>
+        <li><a id="navSearch" href="#">Search</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+
+
+<div class="text-center" id="authScreen">
+<h1>Sign In</h1>
+<button class="btn btn-lg btn-default" id="googleButton">
+  <img src="./images/google.png">
+</button>
+</div>
+
+<div class="text-center hide" id="search">
   <div class="input-group input-group-lg col-xs-6 col-xs-offset-3">
   <span class="input-group-addon glyphicon glyphicon-search" id="sizing-addon1"></span>
   <input type="text" class="form-control" id="searchBar" placeholder="Search" aria-describedby="sizing-addon1">
 </div>
+</div>
 
+<div id="movies" class="container">
+<div class="text-center hide" id="myMovies">
+  <h1>My Movies</h1>
+    <div id="moviesMine"></div>
+</div>
+</div>
+
+<p></p>
 <div id="movies"></div>
 
 <script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
