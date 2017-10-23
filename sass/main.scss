@@ -1,1 +1,9 @@
 @import '_colors';
+
+body {
+	background-color: $red;
+}
+
+.hide {
+	display: none;
+}
