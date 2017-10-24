@@ -1,6 +1,7 @@
 "use strict";
 
 const tmdb = require('./tmdb');
+const dom = require('./dom');
 const firebaseApi = require('./firebaseApi');
 
 const pressEnter = () => {
@@ -25,6 +26,12 @@ const myLinks = () => {
 			$('#search').addClass('hide');
 			$('#myMovies').removeClass('hide');
 			$('#authScreen').addClass('hide');
+			firebaseApi.getMoviesList().then((results) => {
+				dom.clearDom('moviesMine');
+				dom.domString(results, tmdb.getImgConfig(), 'moviesMine');
+			}).catch((err) => {
+				console.log("error in getMoviesList", err);
+			});
 		}else if(e.target.id === 'nauthenticate') {
 			$('#search').addClass('hide');
 			$('#myMovies').addClass('hide');

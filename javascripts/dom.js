@@ -1,7 +1,6 @@
 "use strict";
 
 const domString = (movieArray, imgConfig, divName) => {
-	console.log("movieArray", movieArray);
 	let domStrang = "";
 	for (let i = 0; i < movieArray.length; i ++){
 		if (i % 3 === 0){
