@@ -53,8 +53,8 @@ const setKey = (apiKey) => {
 };
 
 const showResults = (movieArray) => {
-	dom.clearDom();
-	dom.domString(movieArray, imgConfig);
+	dom.clearDom('movies');
+	dom.domString(movieArray, imgConfig, 'movies');
 };
 
 module.exports = {setKey, searchMovies};
