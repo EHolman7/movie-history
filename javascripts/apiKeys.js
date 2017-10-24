@@ -21,7 +21,7 @@ const retrieveKeys = () => {
 		firebase.initializeApp(results.firebaseKeys);
 		console.log("firebase apps", firebase.apps);
 	}).catch((error) => {
-		console.log("error in retrieve keys", error);
+		console.log("error in retrieve keys", error); 
 	});
 };
 
