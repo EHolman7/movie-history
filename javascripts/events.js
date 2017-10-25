@@ -32,7 +32,7 @@ const myLinks = () => {
 			}).catch((err) => {
 				console.log("error in getMoviesList", err);
 			});
-		}else if(e.target.id === 'nauthenticate') {
+		}else if(e.target.id === 'authenticate') {
 			$('#search').addClass('hide');
 			$('#myMovies').addClass('hide');
 			$('#authScreen').removeClass('hide');
@@ -73,7 +73,37 @@ const wishListEvents = () => {
 	});
 };
 
+const reviewEvents = () => {
+	$('body').on('click', '.review', (e) => {
+		let mommy = e.target.closest('.movie');
+
+		let newMovie = {
+			"title": $(mommy).find('.title').html(),
+			"overview": $(mommy).find('.overview').html(),
+			"poster_path": $(mommy).find('.poster_path').attr('src').split('/').pop(),
+			"rating": 0,
+			"isWatched": "true",
+			"uid": ""
+		};
+		
+		firebaseApi.saveMovie(newMovie).then((results) => {
+			$(mommy).remove();
+		}).catch((err) => {
+			console.log("error in saveMovie", err);
+		});
+
+	});
+};
+
+const init = () =>{
+ 	myLinks();
+ 	googleAuth();
+ 	pressEnter();
+ 	wishListEvents();
+ 	reviewEvents();
+};
 
 
 
-module.exports = {pressEnter, myLinks, googleAuth, wishListEvents};
+
+module.exports = {init};
